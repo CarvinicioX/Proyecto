@@ -42,16 +42,16 @@ bool FSArrayList::insert(Object* Neo, int Posit){
 	return true;
 }
 
-Object* FSArrayList::remove(unsigned Posit){
+bool FSArrayList::erase(unsigned Posit){
 	if (Posit < 0 || Posit >= size) {
-		return NULL;
+		return false;
 	}
 	Object* Objeto = Datos[Posit];
 	for(int i = Posit; i < (size - 1); i++){
 		Datos[i + 1] = Datos[i];
 	}
 	size--;
-	return Objeto;
+	return true;
 }
 
 Object* FSArrayList::first()const {
@@ -98,4 +98,24 @@ bool FSArrayList::isFull()const{
 		return true;
 	}
 	return false;
+}
+
+void FSArrayList::print()const{
+	cout << "Jeje" << endl;
+}
+
+int FSArrayList::prev(int Posit)const{
+	return Posit - 1;
+}
+
+int FSArrayList::next(int Posit)const{
+	return Posit + 1;
+}
+
+void FSArrayList::reset(){
+	cout << "Jeje" << endl;
+}
+
+int FSArrayList::getCapacity()const{
+	return Capacidad;
 }
